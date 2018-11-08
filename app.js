@@ -57,11 +57,13 @@ function snapshot() {
 
     context.drawImage(videoElement, 0, 0, videoElement.width, videoElement.height);
     document.querySelector('img').src = canvasElement.toDataURL('image/jpeg');
+
+    // convder image to blob, and download
     blob = Base64toBlob(canvasElement.toDataURL('image/jpeg'));
     saveBlob(blob, "image.jpeg");
 }
 
-// Base64データをBlobデータに変換
+// Convert Base64 to Blob
 function Base64toBlob(base64){
   // カンマで分割して以下のようにデータを分ける
   // tmp[0] : データ形式（data:image/png;base64）
